@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connect = async () => {
-    await mongoose.connect(' mongodb://127.0.0.1:27017/Twitter');
+    await mongoose.connect('mongodb://127.0.0.1/Twitter_DB');
 }
 
 module.exports = connect;
