@@ -20,7 +20,7 @@ class TweetRepository {
     }
     async getWithComments(id) {
         try {
-            const tweet = await Tweet.findById(id).populate({path: 'comments'});
+            const tweet = await Tweet.findById(id).populate({path: 'comments'}).lean();
             return tweet;
         } catch (error) {
             console.log("Something went wrong in repository layer")
@@ -37,6 +37,14 @@ class TweetRepository {
     async destroy(id) {
         try {
             const tweet = await Tweet.findByIdAndDelete(id);
+            return tweet;
+        } catch (error) {
+            console.log("Something went wrong in repository layer")
+        }
+    }
+    async getAll(offset, limit) {
+        try {
+            const tweet = await Tweet.find().skip(offset).limit(limit);   //pagenation
             return tweet;
         } catch (error) {
             console.log("Something went wrong in repository layer")

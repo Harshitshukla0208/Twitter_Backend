@@ -19,10 +19,11 @@ const SetUpAndStartServer = () => {
         // const tweet = await tweetrepo.create({content: 'some content'})
         // const comment  = await Comment.create({content: 'some comment'})
         // tweet.comments.push(comment)
-        // await tweet.save();
+        // await tweet.save(); 
         const tweetrepo = new TweetRepository();
-        const tweet = await tweetrepo.getWithComments('6599a434f1e85ad818dd79eb')
-        console.log(tweet); 
+        // const tweet = await tweetrepo.getAll(1,1)
+        // console.log(tweet[0].contentWithEmail); 
+        await tweetrepo.create({content: 'With hooks'})
     })
 
 }
