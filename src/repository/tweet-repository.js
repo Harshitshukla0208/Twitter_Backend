@@ -26,14 +26,6 @@ class TweetRepository {
             console.log("Something went wrong in repository layer")
         }
     }
-    async update(id, data) {
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(id, data);
-            return tweet;
-        } catch (error) {
-            console.log("Something went wrong in repository layer")
-        }
-    }
     async destroy(id) {
         try {
             const tweet = await Tweet.findByIdAndDelete(id);
