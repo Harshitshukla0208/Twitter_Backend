@@ -1,51 +1,19 @@
-import likes from '../models/like.js';
+import Like from '../models/like.js';
+import CrudRepository from './crud-repository.js';
 
-class LikesRepository {
+class LikeRepository extends CrudRepository {
+    constructor() {
+        super(Like);
+    }
 
-    async create(data){
+    async findByUserAndLikeable(data) {
         try {
-            const like = await likes.create(data);
+            const like = await Like.findOne(data);
             return like;
-        } catch (error) {
-            console.log("Something went wrong inside like repo layer");
-        }
-    }
-
-    async destroy(id){
-        try {
-            const response = await likes.findByIdAndDelete(id);
-            return response;
-        } catch (error) {
-            console.log("Something went wrong inside likes repo layer");
-        }
-    }
-
-    async get(id){
-        try {
-            const result = await likes.findById(id);
-            return result;
-        } catch (error) {
-            console.log("Somethiing went wrong inside like repo layer");
-        }
-    }
-
-    async getAll(id){
-        try {
-            const result = await likes.find({});
-            return result;
-        } catch (error) {
-            console.log("Somethiing went wrong inside like repo layer");
-        }
-    }
-
-    async update(id, data){
-        try {
-            const result = await likes.findByIdAndUpdate(id, data, {new: true});
-            return result;
-        } catch (error) {
-            console.log("Somethiing went wrong inside like repo layer");
+        } catch(error) {
+            throw error;
         }
     }
 }
 
-export default LikesRepository;
+export default LikeRepository;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const likeSchema = new mongoose.Schema({
     onModel: {
@@ -11,7 +11,7 @@ const likeSchema = new mongoose.Schema({
         required: true,
         refPath: 'onModel'
     },
-    users: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
