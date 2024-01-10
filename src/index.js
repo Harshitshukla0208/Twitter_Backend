@@ -24,14 +24,14 @@ app.listen(3000, async () => {
     console.log('MongoDB connected');
 
     // Fetch data from repositories
-    const userRepository = new UserRepository();
-    const tweetRepository = new TweetRepository();
-    const tweets = await tweetRepository.getAll(0, 10);
-    const users = await userRepository.getAll();
+    // const userRepository = new UserRepository();
+    // const tweetRepository = new TweetRepository();
+    // const tweets = await tweetRepository.getAll(0, 10);
+    // const users = await userRepository.getAll();
 
-    // Example usage of LikeService
-    const likeService = new LikeService();
-    await likeService.toggleLike(tweets[0].id, 'Tweet', users[0].id);
+    // // Example usage of LikeService
+    // const likeService = new LikeService();
+    // await likeService.toggleLike(tweets[0].id, 'Tweet', users[0].id);
 });
 
 export default app;
